@@ -10,7 +10,11 @@ fn main(value: u32, hash_value: pub u32){
 fn calculate_hash(num: u32) -> u32 {
     // FNV values | https://en.wikipedia.org/wiki/Fowler%E2%80%93Noll%E2%80%93Vo_hash_function
     let mut hash_value = 0x811c9dc5;    // 2166136261
-    let size = 0xffffffff;              // 4294967296
+    let size = 0xffffffff;              // 4294967296 (unsigned = 0 to 4294967295; 4294967295 = 0xffffffff)
+    // Note:
+    // Alternative for size
+    // let _size = 2;
+    // let __size = _size.pow_32(32) - 1;
 
     // data
     let num_field = num as Field;
